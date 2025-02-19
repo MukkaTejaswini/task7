@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 90vw;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.display {
+    background: #333;
+    color: white;
+    text-align: right;
+    padding: 20px;
+    font-size: 2em;
+    border-bottom: 2px solid #444;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.btn, .btnoperator {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btnoperator {
+    background: #ff9500;
+}
+
+.btn:hover {
+    background: #555;
+}
+
+.btn:active {
+    background: #777;
+}
+
+@media (max-width: 400px) {
+    .display {
+        font-size: 5vw;
+        padding: 4vw;
+    }
+    .btn, .btnoperator {
+        padding: 4vw;
+        font-size: 3.5vw;
+    }
+}
+
+.name {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    color: rgb(51, 93, 170);
+    font-size: xx-large;
+    width: 100%;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

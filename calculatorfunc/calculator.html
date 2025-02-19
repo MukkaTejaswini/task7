@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>CALCULATOR</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="name">Calculator</div>
+            <br><br>
+            <div class="calculator">
+                <input type="text" class="display" id="display" value="0" readonly>
+                <div class="buttons">
+                    <button class="btn">7</button>
+                    <button class="btn">8</button>
+                    <button class="btn">9</button>
+                    <button class="btnoperator">/</button>
+                    <button class="btn">4</button>
+                    <button class="btn">5</button>
+                    <button class="btn">6</button>
+                    <button class="btnoperator">*</button>
+                    <button class="btn">1</button>
+                    <button class="btn">2</button>
+                    <button class="btn">3</button>
+                    <button class="btnoperator">-</button>
+                    <button class="btn">0</button>
+                    <button class="btn">C</button>
+                    <button class="btn">=</button>
+                    <button class="btnoperator">+</button>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let display = document.getElementById("display");
+    let buttons = document.querySelectorAll(".btn, .btnoperator");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", function () {
+            let value = this.innerText;
+
+            if (value === "C") {
+                display.value = "0";  
+            } else if (value === "=") {
+                try {
+                    display.value = eval(display.value); 
+                } catch {
+                    display.value = "Error";
+                }
+            } else {
+                if (display.value === "0" || display.value === "Error") {
+                    display.value = value;  
+                } else {
+                    display.value += value;  
+                }
+            }
+        });
+    });
+});
+</script>
