@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>REGISTRATION FORM</title>
+    <style>
+        h1 {
+            text-align: center;
+            color: purple;
+        }
+        p {
+            color: blue;
+        }
+        body {
+            background-color: rgb(48, 201, 221);
+        }
+    </style>
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            let firstName = document.getElementById("first-name").value;
+            let lastName = document.getElementById("last-name").value;
+            let email = document.getElementById("email").value;
+            let contactNumber = document.getElementById("contact-number").value;
+            let pincode = document.getElementById("pincode").value;
+            let state = document.getElementById("state").value;
+            let country = document.getElementById("country").value;
+            
+            if (firstName === "" || lastName === "" || email === "" || contactNumber === "" || pincode === "" || state === "" || country === "") {
+                alert("All fields are required!");
+                return false;
+            }
+            
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Enter a valid email address!");
+                return false;
+            }
+            
+            let phonePattern = /^[0-9]{10}$/;
+            if (!phonePattern.test(contactNumber)) {
+                alert("Enter a valid 10-digit contact number!");
+                return false;
+            }
+            
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>REGISTRATION FORM</h1>
+    <form onsubmit="return validateForm(event)">
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="first-name">
+        <br><br>
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="last-name">
+        <br><br>
+        <p>Gender:</p>
+        <label><input type="radio" name="gender" value="male"> Male</label>
+        <label><input type="radio" name="gender" value="female"> Female</label>
+        <label><input type="radio" name="gender" value="other"> Other</label>
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <br><br>
+        <label for="contact-number">Contact No:</label>
+        <input type="text" id="contact-number" name="contact-number">
+        <br><br>
+        <label for="pincode">Pincode:</label>
+        <input type="text" id="pincode" name="pincode">
+        <br><br>
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state">
+        <br><br>
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country">
+        <br><br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+</body>
+</html>
